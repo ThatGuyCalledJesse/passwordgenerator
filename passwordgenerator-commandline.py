@@ -14,9 +14,16 @@ possibleCharacters = ['a', 'b', 'c', 'd', 'e',
                       'z']
 numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 specials = ['!', '@', '#', '$', '%', '^', '&', '*', '?']
+capitals = []
+
+for character in possibleCharacters:
+    character = character.upper()
+    capitals.append(character)
+
 password = ""
 numbersEnabled = input("Do you want to enable numbers? [YES] [NO]\n>")
 specialsEnabled = input("Do you want to enable specials? [YES] [NO]\n>")
+capitalsEnabled = input("Do you want to enable uppercase letters? [YES] [NO]\n>")
 
 if numbersEnabled.lower() == "yes":
     for number in numbers:
@@ -24,6 +31,9 @@ if numbersEnabled.lower() == "yes":
 if specialsEnabled.lower() == "yes":
     for special in specials:
         possibleCharacters.append(special)
+if capitalsEnabled.lower() == "yes":
+    for capital in capitals:
+        possibleCharacters.append(capital)
 
 try:
     passLength = args.Length

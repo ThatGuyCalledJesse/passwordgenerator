@@ -9,19 +9,29 @@ possibleCharacters = ['a', 'b', 'c', 'd', 'e',
                       'z']
 numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 specials = ['!', '@', '#', '$', '%', '^', '&', '*', '?']
+capitals = []
 password = ""
+
+for character in possibleCharacters:
+    character = character.upper()
+    capitals.append(character)
+
+capitalsEnabled = input("Do you want to enable uppercase letters? [YES] [NO]\n>")
+numbersEnabled = input("Do you want to enable numbers? [YES] [NO]\n>")
+specialsEnabled = input("Do you want to enable special characters? [YES] [NO]\n>")
 
 while True:
     try:
         passLength = input("How long should the password be?")
-        numbersEnabled = input("Do you want to enable numbers? [YES] [NO]\n>")
-        specialsEnabled = input("Do you want to enable special characters? [YES] [NO]\n>")
         if numbersEnabled.lower() == "yes":
             for number in numbers:
                 possibleCharacters.append(number)
         if specialsEnabled.lower() == "yes":
             for special in specials:
                 possibleCharacters.append(special)
+        if capitalsEnabled.lower() == "yes":
+            for capital in capitals:
+                possibleCharacters.append(capital)
         passLength = int(passLength)
         generatedPassLength = 0
 
